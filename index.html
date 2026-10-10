@@ -103,7 +103,7 @@
 
             <!-- Nav Links (Desktop) -->
             <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-medium tracking-widest text-stone-600 dark:text-stone-300 uppercase">
-                <a href="#overview" onclick="smoothScroll(event, 'overview')" class="hover:text-[#B08B48] dark:hover:text-[#B08B48] transition-colors">OVERVIEW</a>
+                <a href="#prerequisite" onclick="smoothScroll(event, 'prerequisite')" class="hover:text-[#B08B48] dark:hover:text-[#B08B48] transition-colors">OVERVIEW</a>
                 <a href="#decoder" onclick="smoothScroll(event, 'decoder')" class="hover:text-[#B08B48] dark:hover:text-[#B08B48] transition-colors">HEALTH DECODER</a>
                 <a href="#framework" onclick="smoothScroll(event, 'framework')" class="hover:text-[#B08B48] dark:hover:text-[#B08B48] transition-colors">FRAMEWORK</a>
                 <a href="#readiness" onclick="smoothScroll(event, 'readiness')" class="hover:text-[#B08B48] dark:hover:text-[#B08B48] transition-colors">READINESS</a>
@@ -115,7 +115,7 @@
                 <!-- Mode Toggle Button Pill -->
                 <button type="button" id="mode-toggle-btn" onclick="togglePerspectiveMode(event)" class="px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 text-[#B08B48] text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DCC8]/60 dark:hover:bg-stone-700 transition-all hidden sm:flex whitespace-nowrap items-center gap-1.5">
                     <i class="fa-solid fa-sliders text-[#B08B48] text-xs"></i>
-                    <span id="mode-toggle-label" class="mode-label">SIMPLE MODE</span>
+                    <span id="mode-toggle-label" class="mode-label">SIMPLE</span>
                 </button>
 
                 <!-- Dark/Light Circle Button -->
@@ -138,7 +138,7 @@
         <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-[#E8DCC8]/60 dark:border-stone-800 bg-white/95 dark:bg-[#0C0A09]/95 backdrop-blur-md">
             <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col text-xs font-semibold tracking-widest text-stone-700 dark:text-stone-200 uppercase">
-                <a href="#overview" onclick="closeMobileMenu(); smoothScroll(event, 'overview')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">OVERVIEW</a>
+                <a href="#prerequisite" onclick="closeMobileMenu(); smoothScroll(event, 'prerequisite')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">OVERVIEW</a>
                 <a href="#decoder" onclick="closeMobileMenu(); smoothScroll(event, 'decoder')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">HEALTH DECODER</a>
                 <a href="#framework" onclick="closeMobileMenu(); smoothScroll(event, 'framework')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">FRAMEWORK</a>
                 <a href="#readiness" onclick="closeMobileMenu(); smoothScroll(event, 'readiness')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">READINESS</a>
@@ -146,7 +146,7 @@
                 <div class="pt-3 pb-1 flex flex-col gap-2.5">
                     <button type="button" onclick="togglePerspectiveMode(event)" class="sm:hidden w-full py-2.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 text-[#B08B48] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
                         <i class="fa-solid fa-sliders text-[#B08B48] text-xs"></i>
-                        <span class="mode-label">SIMPLE MODE</span>
+                        <span class="mode-label">SIMPLE</span>
                     </button>
                     <a href="#" onclick="closeMobileMenu(); openDiscoveryModal(event)" class="w-full py-3 rounded-full bg-[#B08B48] text-white text-center font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm">BOOK CALL</a>
                 </div>
@@ -861,11 +861,11 @@
             const heroText = document.getElementById('hero-card-text');
 
             if (currentPerspectiveMode === 'simple') {
-                btnLabels.forEach(l => l.textContent = 'SIMPLE MODE');
+                btnLabels.forEach(l => l.textContent = 'SIMPLE');
                 heroTag.innerHTML = `<i class="fa-solid fa-compass"></i> PERSPECTIVE: SIMPLE ANALOGY`;
                 heroText.textContent = `Before committing to complex tests or lifestyle overhauls, this initial Discovery Session is where we get acquainted. In this free 1-to-1 video call, we review your health timeline, listen to what your body has been going through, and evaluate if functional health investigation is the exact right path forward for your goals.`;
             } else {
-                btnLabels.forEach(l => l.textContent = 'CLINICAL MODE');
+                btnLabels.forEach(l => l.textContent = 'CLINICAL');
                 heroTag.innerHTML = `<i class="fa-solid fa-microscope"></i> PERSPECTIVE: CLINICAL CONCEPT`;
                 heroText.textContent = `The Discovery Session serves as a preliminary FDN triage call. We analyze metabolic strain, systemic feedback loops, and symptom duration to determine if comprehensive functional diagnostic testing (DUTCH, GI-MAP) is indicated.`;
             }
