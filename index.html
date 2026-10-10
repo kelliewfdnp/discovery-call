@@ -123,7 +123,7 @@
                 </button>
 
                 <!-- Book Call CTA -->
-                <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm shrink-0">
+                <a href="#" onclick="openDiscoveryModal(event)" class="hidden sm:inline-flex items-center justify-center px-4 py-2 rounded-full bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm shrink-0">
                     BOOK CALL
                 </a>
             </div>
@@ -160,7 +160,7 @@
 
             <!-- Hero Action Buttons -->
             <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-md flex items-center justify-center gap-2">
+                <a href="#" onclick="openDiscoveryModal(event)" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-md flex items-center justify-center gap-2">
                     <span>APPLY FOR DISCOVERY CALL</span>
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
@@ -253,7 +253,7 @@
                             </ul>
                         </div>
                         <div class="mt-8 pt-6 border-t border-stone-100 dark:border-stone-700">
-                            <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all flex items-center justify-center gap-2">
+                            <a href="#" onclick="openDiscoveryModal(event)" class="w-full py-3 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all flex items-center justify-center gap-2">
                                 <span>BOOK FREE DISCOVERY CALL</span>
                                 <i class="fa-solid fa-chevron-right text-[10px]"></i>
                             </a>
@@ -342,7 +342,7 @@
                     </div>
 
                     <div class="mt-8 pt-4 border-t border-stone-100 dark:border-stone-800">
-                        <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm gap-2">
+                        <a href="#" onclick="openDiscoveryModal(event)" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm gap-2">
                             <span>DISCUSS YOUR SYMPTOMS IN A FREE CALL</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -518,7 +518,7 @@
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                        <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-md">
+                        <a href="#" onclick="openDiscoveryModal(event)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#B08B48] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-md">
                             SCHEDULE FREE DISCOVERY CALL
                         </a>
                         <button type="button" onclick="resetQuiz(event)" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-semibold text-xs tracking-wider uppercase hover:bg-stone-200 dark:hover:bg-stone-700 transition-all">
@@ -596,7 +596,7 @@
                             <div class="text-xs text-stone-300">20 Minutes • Private Video Session</div>
                         </div>
                     </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeapfx5Bh-LE0_dpWcGhHG2wPe0o2ww5bP2yKvhpVHuyAQ6DQ/viewform" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 rounded-xl bg-[#B08B48] text-white font-bold text-sm hover:bg-[#967233] transition-all shadow-lg text-center uppercase tracking-wider block">
+                    <a href="#" onclick="openDiscoveryModal(event)" class="w-full py-3.5 rounded-xl bg-[#B08B48] text-white font-bold text-sm hover:bg-[#967233] transition-all shadow-lg text-center uppercase tracking-wider block">
                         SCHEDULE YOUR FREE SESSION
                     </a>
                 </div>
@@ -606,6 +606,61 @@
     </main>
 
     <!-- FOOTER -->
+    <!-- DISCOVERY CALL REQUEST MODAL -->
+    <div id="discovery-modal" class="fixed inset-0 z-[60] bg-stone-950/70 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-xl overflow-y-auto max-h-[90vh]">
+            <button type="button" onclick="closeDiscoveryModal()" aria-label="Close" class="absolute top-5 right-5 text-stone-400 hover:text-[#1C1917] dark:hover:text-white text-xl font-bold">&times;</button>
+            <div class="mb-5">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#B08B48] block mb-1">FREE 1-TO-1 VIRTUAL CALL</span>
+                <h3 class="text-2xl font-serif font-bold text-[#1C1917] dark:text-white">Request Your Discovery Call</h3>
+                <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Tell us a little about you and we will be in touch to arrange a time.</p>
+            </div>
+            <form id="discovery-form" onsubmit="handleDiscoverySubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-[#1C1917] dark:text-stone-300 mb-1.5">1. What would you most like to explore?</label>
+                    <select id="dc-focus" name="Focus Area" required class="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-[#FAF8F5] dark:bg-stone-900 text-[#1C1917] dark:text-white text-xs sm:text-sm focus:border-[#B08B48] focus:outline-none">
+                        <option>3 PM energy slump &amp; afternoon crash</option>
+                        <option>Post-meal bloating &amp; distension</option>
+                        <option>Brain fog &amp; concentration slumps</option>
+                        <option>Waking at 3 AM with racing thoughts</option>
+                        <option>Stubborn weight &amp; metabolic resistance</option>
+                        <option>Skin flares &amp; adult breakouts</option>
+                        <option>Something else</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-[#1C1917] dark:text-stone-300 mb-1.5">2. Where are you in your health journey?</label>
+                    <select id="dc-stage" name="Journey Stage" required class="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-[#FAF8F5] dark:bg-stone-900 text-[#1C1917] dark:text-white text-xs sm:text-sm focus:border-[#B08B48] focus:outline-none">
+                        <option>New to functional health</option>
+                        <option>Have done some testing but still searching for answers</option>
+                        <option>Currently working with another practitioner</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs sm:text-sm font-semibold text-[#1C1917] dark:text-stone-300 mb-1.5">3. Your Name &amp; Email for the Discovery Call</label>
+                    <input id="dc-name" type="text" name="Full Name" placeholder="Your Full Name" required class="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-[#FAF8F5] dark:bg-stone-900 text-[#1C1917] dark:text-white text-xs sm:text-sm focus:border-[#B08B48] focus:outline-none mb-2.5">
+                    <input id="dc-email" type="email" name="Email" placeholder="Your Email Address" required class="w-full p-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-[#FAF8F5] dark:bg-stone-900 text-[#1C1917] dark:text-white text-xs sm:text-sm focus:border-[#B08B48] focus:outline-none">
+                </div>
+                <div id="dc-status" class="hidden text-xs text-center py-2.5 px-3 rounded-xl transition-all"></div>
+                <div class="space-y-2">
+                    <button type="button" onclick="submitDiscoveryViaWhatsApp()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        Request via WhatsApp
+                    </button>
+                    <button id="dc-submit-btn" type="submit" class="w-full py-2.5 rounded-xl bg-[#B08B48] hover:bg-[#967233] text-white font-bold text-xs uppercase tracking-wider transition-all">Or Submit via Web Form</button>
+                </div>
+            </form>
+            <div id="dc-success" class="hidden text-center py-2 space-y-4">
+                <div class="w-12 h-12 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl font-bold">&#10003;</div>
+                <div>
+                    <h4 id="dc-success-title" class="text-xl font-serif font-bold text-[#1C1917] dark:text-white">Request Sent</h4>
+                    <p id="dc-success-text" class="text-xs sm:text-sm text-stone-500 dark:text-stone-300 mt-1 leading-relaxed">Thank you. We will be in touch shortly to arrange your Discovery Call.</p>
+                </div>
+                <button type="button" onclick="closeDiscoveryModal(); resetDiscoveryForm();" class="px-6 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-300 hover:text-[#1C1917]">Close Window</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-[#1C1917] text-stone-400 text-xs py-10 border-t border-stone-800">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <div>
@@ -616,7 +671,7 @@
             <div class="flex items-center justify-center gap-4 text-stone-400 text-xs">
                 <a href="https://kelliewfdnp.substack.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#B08B48] transition-colors">Substack Article</a>
                 <span>•</span>
-                <a href="https://kelliewfdnp.substack.com/p/discovery-session-1-to-1-video-call" target="_blank" rel="noopener noreferrer" class="hover:text-[#B08B48] transition-colors">Discovery Pre-Screening</a>
+                <a href="#" onclick="openDiscoveryModal(event)" class="hover:text-[#B08B48] transition-colors">Discovery Pre-Screening</a>
             </div>
 
             <p class="max-w-3xl mx-auto text-[11px] text-stone-500 leading-relaxed">
@@ -939,6 +994,79 @@
                 msgBox.remove();
             }, 3000);
         }
+    
+        // ---- Discovery Call request: WhatsApp + FormSubmit (same setup as The Inner Circle readiness check) ----
+        const WHATSAPP_NUMBER = "6596449966";
+        const FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/kellwx@gmail.com";
+
+        function openDiscoveryModal(e) {
+            if (e) e.preventDefault();
+            const m = document.getElementById('discovery-modal');
+            m.classList.remove('hidden'); m.classList.add('flex');
+        }
+        function closeDiscoveryModal() {
+            const m = document.getElementById('discovery-modal');
+            m.classList.add('hidden'); m.classList.remove('flex');
+        }
+        function dcStatus(msg, warn) {
+            const s = document.getElementById('dc-status');
+            s.className = 'text-xs text-center py-2.5 px-3 rounded-xl font-medium block ' + (warn
+                ? 'bg-amber-500/10 border border-amber-500/30 text-amber-800 dark:text-amber-300'
+                : 'bg-stone-100 dark:bg-stone-800 text-stone-500');
+            s.innerText = msg;
+        }
+        function dcShowSuccess(title, text) {
+            document.getElementById('dc-success-title').innerText = title;
+            document.getElementById('dc-success-text').innerText = text;
+            document.getElementById('discovery-form').classList.add('hidden');
+            document.getElementById('dc-success').classList.remove('hidden');
+        }
+        function submitDiscoveryViaWhatsApp() {
+            const focus = document.getElementById('dc-focus').value;
+            const stage = document.getElementById('dc-stage').value;
+            const name = document.getElementById('dc-name').value.trim();
+            const email = document.getElementById('dc-email').value.trim();
+            if (!name || !email) { dcStatus('\u26A0\uFE0F Please enter your Name and Email first.', true); return; }
+            const msg = `Hello Kel, I would like to book a free *1-to-1 Discovery Call*.\n\n` +
+                `*Name:* ${name}\n*Email:* ${email}\n*Focus Area:* ${focus}\n*Journey Stage:* ${stage}`;
+            window.open(`https://wa.me/${WHATSAPP_NUMBER.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(msg)}`, '_blank');
+            dcShowSuccess('Request Ready', 'Your details have been formatted. Complete sending your message in WhatsApp to start your direct line with Kel.');
+        }
+        async function handleDiscoverySubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('dc-submit-btn');
+            const name = document.getElementById('dc-name').value;
+            btn.disabled = true; btn.innerText = 'PROCESSING REQUEST...';
+            dcStatus('Transmitting request details...', false);
+            try {
+                const res = await fetch(FORMSUBMIT_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        'Applicant Name': name,
+                        'Applicant Email': document.getElementById('dc-email').value,
+                        'Focus Area': document.getElementById('dc-focus').value,
+                        'Journey Stage': document.getElementById('dc-stage').value,
+                        _subject: `New Discovery Call Request from ${name}`,
+                        _captcha: 'false'
+                    })
+                });
+                if (!res.ok) throw new Error('Request failed');
+                dcShowSuccess('Request Sent', 'Thank you. We will be in touch shortly to arrange your Discovery Call.');
+            } catch (err) {
+                btn.disabled = false; btn.innerText = 'OR SUBMIT VIA WEB FORM';
+                dcStatus('Could not send the web form. Please use the WhatsApp request button instead.', true);
+            }
+        }
+        function resetDiscoveryForm() {
+            const f = document.getElementById('discovery-form');
+            f.reset(); f.classList.remove('hidden');
+            document.getElementById('dc-success').classList.add('hidden');
+            const b = document.getElementById('dc-submit-btn'); b.disabled = false; b.innerText = 'OR SUBMIT VIA WEB FORM';
+            document.getElementById('dc-status').className = 'hidden';
+        }
+        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeDiscoveryModal(); });
+        document.getElementById('discovery-modal').addEventListener('click', ev => { if (ev.target.id === 'discovery-modal') closeDiscoveryModal(); });
     </script>
 </body>
 </html>
