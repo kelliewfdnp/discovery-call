@@ -43,6 +43,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
+.dark [class~="text-[#B08B48]"]:not([class*="dark:text-"]){color:#C5A880}
+.dark #quiz-progress-bar{background-color:#C5A880}
+.fa-flask{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M10%202v7.527a2%202%200%200%201-.211.896L4.72%2020.55a1%201%200%200%200%20.9%201.45h12.76a1%201%200%200%200%20.9-1.45l-5.069-10.127A2%202%200%200%201%2014%209.527V2%22/%3E%3Cpath%20d%3D%22M8.5%202h7M7%2016h10%22/%3E%3C/svg%3E")}
+.dark .gold-label,.dark .gold-label .fa-solid,.gold-label-always{color:#E5CE9F}
+.dark .hero-accent-text{background:linear-gradient(135deg,#F9F2E4 0%,#E5CE9F 50%,#C5A880 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;display:inline-block;padding-right:.06em}
 .fa-bars{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%206h16M4%2012h16M4%2018h16%22/%3E%3C/svg%3E")}
 .fa-lightbulb{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cg%20transform%3D%22translate%282.4%203.8%29%20scale%280.8%29%22%3E%3Cpath%20d%3D%22M12%201.5a7.5%207.5%200%200%200-4.4%2013.6V17a1%201%200%200%200%201%201h6.8a1%201%200%200%200%201-1v-1.9A7.5%207.5%200%200%200%2012%201.5z%22%20fill%3D%22black%22/%3E%3Crect%20x%3D%228.8%22%20y%3D%2219.2%22%20width%3D%226.4%22%20height%3D%221.7%22%20rx%3D%220.85%22%20fill%3D%22black%22/%3E%3Crect%20x%3D%2210%22%20y%3D%2222%22%20width%3D%224%22%20height%3D%221.5%22%20rx%3D%220.75%22%20fill%3D%22black%22/%3E%3C/g%3E%3Cpath%20d%3D%22M12%203.2V0.9M6.5%205.5L4.8%203.8M17.5%205.5L19.2%203.8M4.2%2011H1.8M19.8%2011H22.2%22%20stroke%3D%22black%22%20stroke-width%3D%221.4%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%3C/svg%3E");filter:drop-shadow(0 0 2.5px rgba(176,139,72,.55))}
 .fa-solid{display:inline-block;width:1em;height:1em;vertical-align:-0.125em;background-color:currentColor;-webkit-mask:var(--ic) center/contain no-repeat;mask:var(--ic) center/contain no-repeat}
@@ -62,7 +67,7 @@
 .fa-plus{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012h14M12%205v14%22/%3E%3C/svg%3E")}
 .fa-sliders{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%204h-7M10%204H3M21%2012h-9M8%2012H3M21%2020h-5M12%2020H3M14%202v4M8%2010v4M16%2018v4%22/%3E%3C/svg%3E")}
 .fa-star{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%202l3.09%206.26L22%209.27l-5%204.87%201.18%206.88L12%2017.77l-6.18%203.25L7%2014.14%202%209.27l6.91-1.01z%22/%3E%3C/svg%3E")}
-.fa-sun{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%224%22/%3E%3Cpath%20d%3D%22M12%202v2M12%2020v2M4.93%204.93l1.41%201.41M17.66%2017.66l1.41%201.41M2%2012h2M20%2012h2M6.34%2017.66l-1.41%201.41M19.07%204.93l-1.41%201.41%22/%3E%3C/svg%3E")}
+.fa-sun{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%224.6%22%20fill%3D%22black%22/%3E%3Cpath%20d%3D%22M12%204.4V1.8M12%2019.6v2.6M4.4%2012H1.8M19.6%2012h2.6M6.63%206.63L4.79%204.79M17.37%2017.37l1.84%201.84M6.63%2017.37l-1.84%201.84M17.37%206.63l1.84-1.84%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%3C/svg%3E")}
 .fa-user-shield{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203l7%203v5c0%205-3%208-7%2010-4-2-7-5-7-10V6z%22/%3E%3Cpath%20d%3D%22M9%2012l2%202%204-4%22/%3E%3C/svg%3E")}
 .fa-video{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M22%208l-6%204%206%204V8z%22/%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2214%22%20height%3D%2212%22%20rx%3D%222%22/%3E%3C/svg%3E")}
 .fa-wheat-awn-circle-exclamation{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22/%3E%3Cpath%20d%3D%22M12%208v4M12%2016h.01%22/%3E%3C/svg%3E")}
@@ -91,13 +96,13 @@
             <!-- Brand Logo & Subtitle -->
             <a href="#overview" onclick="smoothScroll(event, 'overview')" class="flex items-center gap-3 group shrink-0 lg:justify-self-start">
                 <div class="w-9 h-9 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 flex items-center justify-center text-[#B08B48] group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-lightbulb text-lg"></i>
+                    <i class="fa-solid fa-lightbulb text-lg dark:text-[#C5A880]"></i>
                 </div>
                 <div>
                     <!-- Reduced font size by 2 sizes: text-sm sm:text-base -->
                     <span class="font-serif text-sm sm:text-base font-semibold tracking-widest text-[#1C1917] dark:text-[#FAF8F5] uppercase block leading-tight">RADICAL WELLNESS</span>
                     <!-- Reduced font size by 2 sizes: text-[8px] sm:text-[10px] -->
-                    <span class="text-[8px] sm:text-[10px] font-medium tracking-widest text-[#B08B48] uppercase block">FUNCTIONAL DISCOVERY SESSION</span>
+                    <span class="gold-label text-[8px] sm:text-[10px] font-medium tracking-widest text-[#B08B48] uppercase block">FUNCTIONAL DISCOVERY SESSION</span>
                 </div>
             </a>
 
@@ -113,14 +118,14 @@
             <!-- Actions Right -->
             <div class="flex items-center gap-2 sm:gap-3 lg:justify-self-end">
                 <!-- Mode Toggle Button Pill -->
-                <button type="button" id="mode-toggle-btn" onclick="togglePerspectiveMode(event)" class="px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 text-[#B08B48] text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DCC8]/60 dark:hover:bg-stone-700 transition-all hidden sm:flex whitespace-nowrap items-center gap-1.5">
-                    <i class="fa-solid fa-sliders text-[#B08B48] text-xs"></i>
+                <button type="button" id="mode-toggle-btn" onclick="togglePerspectiveMode(event)" class="px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-[#B08B48]/70 text-[#B08B48] dark:text-[#F0DDB0] text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DCC8]/60 dark:hover:bg-stone-700 transition-all hidden sm:flex whitespace-nowrap items-center gap-1.5">
+                    <i class="fa-solid fa-sliders text-[#B08B48] dark:text-[#F0DDB0] text-xs"></i>
                     <span id="mode-toggle-label" class="mode-label">SIMPLE</span>
                 </button>
 
                 <!-- Dark/Light Circle Button -->
-                <button type="button" onclick="toggleTheme(event)" class="w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-[#B08B48] flex items-center justify-center hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shrink-0 shadow-xs" title="Toggle Light/Dark Theme">
-                    <i id="theme-icon" class="fa-solid fa-moon text-sm"></i>
+                <button type="button" onclick="toggleTheme(event)" class="w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-[#B08B48]/70 text-stone-700 dark:text-[#F0DDB0] flex items-center justify-center hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shrink-0 shadow-xs" title="Toggle Light/Dark Theme">
+                    <i id="theme-icon" class="fa-solid fa-moon text-lg"></i>
                 </button>
 
                 <!-- Book Call CTA -->
@@ -129,7 +134,7 @@
                 </a>
 
                 <!-- Mobile Menu Button -->
-                <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu(event)" aria-label="Open menu" aria-expanded="false" class="lg:hidden w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-[#B08B48] flex items-center justify-center hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shrink-0 shadow-xs">
+                <button type="button" id="mobile-menu-btn" onclick="toggleMobileMenu(event)" aria-label="Open menu" aria-expanded="false" class="lg:hidden w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-[#F0DDB0] flex items-center justify-center hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shrink-0 shadow-xs">
                     <i id="menu-icon" class="fa-solid fa-bars text-base"></i>
                 </button>
             </div>
@@ -144,8 +149,8 @@
                 <a href="#readiness" onclick="closeMobileMenu(); smoothScroll(event, 'readiness')" class="py-3.5 border-b border-stone-100 dark:border-stone-800 hover:text-[#B08B48]">READINESS</a>
                 <a href="#faq" onclick="closeMobileMenu(); smoothScroll(event, 'faq')" class="py-3.5 hover:text-[#B08B48]">FAQ</a>
                 <div class="pt-3 pb-1 flex flex-col gap-2.5">
-                    <button type="button" onclick="togglePerspectiveMode(event)" class="sm:hidden w-full py-2.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 text-[#B08B48] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-sliders text-[#B08B48] text-xs"></i>
+                    <button type="button" onclick="togglePerspectiveMode(event)" class="sm:hidden w-full py-2.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-[#B08B48]/70 text-[#B08B48] dark:text-[#F0DDB0] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-sliders text-[#B08B48] dark:text-[#F0DDB0] text-xs"></i>
                         <span class="mode-label">SIMPLE</span>
                     </button>
                     <a href="#" onclick="closeMobileMenu(); openDiscoveryModal(event)" class="w-full py-3 rounded-full bg-[#B08B48] text-white text-center font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm">BOOK CALL</a>
@@ -157,20 +162,21 @@
     <main class="flex-grow">
         <!-- HERO SECTION -->
         <section id="overview" class="text-center pt-12 pb-16 px-4 max-w-5xl mx-auto">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800/80 text-[#B08B48] text-xs font-semibold uppercase tracking-wider mb-8 border border-[#E8DCC8] dark:border-stone-700">
+            <div class="gold-label inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800/80 text-[#B08B48] text-xs font-semibold uppercase tracking-wider mb-8 border border-[#E8DCC8] dark:border-stone-700">
+                <span class="relative flex h-[8px] w-[8px] shrink-0"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" style="animation-duration:1.25s"></span><span class="relative inline-flex h-[8px] w-[8px] rounded-full bg-emerald-500"></span></span>
                 <i class="fa-solid fa-video text-[#B08B48]"></i>
                 <span>1-TO-1 PRIVATE VIRTUAL DISCOVERY CALL</span>
             </div>
             
             <!-- Headline revised: Highlight only "Root-Cause" -->
             <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-[#1C1917] dark:text-stone-100 leading-[1.15] max-w-4xl mx-auto">
-                Explore If Functional <span class="font-serif italic text-[#B08B48] font-normal">Root-Cause</span><br>
+                Explore If Functional <span class="hero-accent-text font-serif italic text-[#9B1B30] font-normal">Root-Cause</span><br>
                 Investigation Is Right for You.
             </h1>
 
             <!-- Dynamic Hero Perspective Box -->
             <div class="mt-10 max-w-2xl mx-auto bg-white dark:bg-stone-900 border border-stone-100 dark:border-stone-800 rounded-2xl p-6 sm:p-7 shadow-xl shadow-stone-200/40 dark:shadow-none text-left relative overflow-hidden transition-all duration-300">
-                <div class="flex items-center justify-between mb-3 text-xs font-medium uppercase tracking-wider text-[#B08B48]">
+                <div class="gold-label flex items-center justify-between mb-3 text-xs font-medium uppercase tracking-wider text-[#B08B48]">
                     <span id="hero-card-tag" class="flex items-center gap-2">
                         <i class="fa-solid fa-compass"></i>
                         PERSPECTIVE: SIMPLE ANALOGY
@@ -189,7 +195,7 @@
                     <i class="fa-solid fa-arrow-right text-xs"></i>
                 </a>
                 <a href="#decoder" onclick="smoothScroll(event, 'decoder')" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 font-semibold text-xs tracking-wider uppercase hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shadow-xs flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-heart-pulse text-[#B08B48]"></i>
+                    <i class="fa-solid fa-heart-pulse text-[#B08B48] dark:text-[#C5A880]"></i>
                     <span>EXPLORE HEALTH DECODER</span>
                 </a>
             </div>
@@ -197,15 +203,15 @@
             <!-- Value Props Badges -->
             <div class="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-stone-600 dark:text-stone-400 font-medium">
                 <div class="flex items-center gap-2 bg-white/80 dark:bg-stone-800/50 px-4 py-2 rounded-lg border border-stone-200/60 dark:border-stone-700/40 shadow-xs">
-                    <i class="fa-solid fa-check text-[#B08B48]"></i>
+                    <i class="fa-solid fa-check text-[#B08B48] dark:text-[#C5A880]"></i>
                     <span>NO OBLIGATION / FREE</span>
                 </div>
                 <div class="flex items-center gap-2 bg-white/80 dark:bg-stone-800/50 px-4 py-2 rounded-lg border border-stone-200/60 dark:border-stone-700/40 shadow-xs">
-                    <i class="fa-solid fa-sliders text-[#B08B48]"></i>
+                    <i class="fa-solid fa-sliders text-[#B08B48] dark:text-[#C5A880]"></i>
                     <span>MUTUAL FIT EVALUATION</span>
                 </div>
                 <div class="flex items-center gap-2 bg-white/80 dark:bg-stone-800/50 px-4 py-2 rounded-lg border border-stone-200/60 dark:border-stone-700/40 shadow-xs">
-                    <i class="fa-solid fa-user-shield text-[#B08B48]"></i>
+                    <i class="fa-solid fa-user-shield text-[#B08B48] dark:text-[#C5A880]"></i>
                     <span>1-TO-1 PRIVATE SESSION</span>
                 </div>
             </div>
@@ -215,7 +221,7 @@
         <section id="prerequisite" class="py-16 bg-white dark:bg-stone-900/40 border-y border-[#E8DCC8]/60 dark:border-stone-800">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">THE PREREQUISITE STEP</span>
+                    <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">THE PREREQUISITE STEP</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1C1917] dark:text-stone-100 mb-3">Why Start with a Discovery Session?</h2>
                     <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base">
                         We don't sell generic packages. We first determine if we are the right team to help you.
@@ -253,8 +259,8 @@
                     <!-- Discovery Session Card -->
                     <div class="bg-white dark:bg-stone-800/90 rounded-2xl p-6 sm:p-8 border-2 border-[#B08B48] shadow-md flex flex-col justify-between relative overflow-hidden">
                         <div>
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3EDE2] dark:bg-stone-700 text-[#1C1917] dark:text-[#B08B48] text-xs font-semibold mb-4">
-                                <i class="fa-solid fa-star text-[#B08B48]"></i>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3EDE2] dark:bg-stone-700 text-[#1C1917] dark:text-[#C5A880] text-xs font-semibold mb-4">
+                                <i class="fa-solid fa-star text-[#B08B48] dark:text-[#C5A880]"></i>
                                 <span>DISCOVERY SESSION</span>
                             </div>
                             <h3 class="font-serif text-xl font-normal text-[#1C1917] dark:text-stone-100 mb-3">Mutual Fit & Alignment Call</h3>
@@ -263,15 +269,15 @@
                             </p>
                             <ul class="space-y-3 text-sm text-stone-700 dark:text-stone-300">
                                 <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-[#B08B48] text-base mt-0.5"></i>
+                                    <i class="fa-solid fa-check text-[#B08B48] dark:text-[#C5A880] text-base mt-0.5"></i>
                                     <span>Identify potential hidden stress patterns</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-[#B08B48] text-base mt-0.5"></i>
+                                    <i class="fa-solid fa-check text-[#B08B48] dark:text-[#C5A880] text-base mt-0.5"></i>
                                     <span>Determine if functional investigation is appropriate</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
-                                    <i class="fa-solid fa-check text-[#B08B48] text-base mt-0.5"></i>
+                                    <i class="fa-solid fa-check text-[#B08B48] dark:text-[#C5A880] text-base mt-0.5"></i>
                                     <span>Clear roadmap of recommended next steps</span>
                                 </li>
                             </ul>
@@ -290,7 +296,7 @@
         <!-- INTERACTIVE HEALTH DECODER -->
         <section id="decoder" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">INTERACTIVE HEALTH DECODER</span>
+                <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">INTERACTIVE HEALTH DECODER</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1C1917] dark:text-stone-100 mb-4">What Is Your Body Trying to Say?</h2>
                 <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
                     Select an area of focus below to begin your journey with a private Discovery Consultation, where we will determine how functional health can elevate your well-being.
@@ -300,7 +306,7 @@
             <div class="grid lg:grid-cols-12 gap-6 items-start">
                 <!-- Left Vertical Selection List -->
                 <div class="lg:col-span-5 space-y-3" id="symptom-list">
-                    <button type="button" onclick="selectSymptom(event, 0)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-[#1C1917] dark:border-[#B08B48] shadow-sm flex items-center justify-between" data-index="0">
+                    <button type="button" onclick="selectSymptom(event, 0)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-sm flex items-center justify-between" data-index="0">
                         <span class="font-medium text-sm">3 PM Energy Slump & Afternoon Crash</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
@@ -330,7 +336,7 @@
                 <div id="decoder-panel" class="lg:col-span-7 bg-white dark:bg-stone-900 border border-[#E8DCC8] dark:border-stone-700 rounded-2xl p-6 sm:p-8 shadow-sm min-h-[440px] flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between pb-4 border-b border-[#E8DCC8]/60 dark:border-stone-800 mb-6">
-                            <span class="text-xs font-medium tracking-widest text-[#B08B48] uppercase">SYMPTOM EXPLORATION</span>
+                            <span class="gold-label text-xs font-medium tracking-widest text-[#B08B48] uppercase">SYMPTOM EXPLORATION</span>
                             <span id="perspective-tag" class="text-[10px] font-medium tracking-wider text-stone-500 uppercase bg-[#F3EDE2] dark:bg-stone-800 px-2.5 py-1 rounded-md">
                                 SIMPLE ANALOGY
                             </span>
@@ -345,20 +351,20 @@
                         </p>
 
                         <div class="bg-[#FAF8F5] dark:bg-stone-800/60 rounded-xl p-5 border border-[#E8DCC8]/60 dark:border-stone-700/60">
-                            <h4 class="text-xs font-medium uppercase tracking-wider text-[#1C1917] dark:text-[#B08B48] mb-3">
+                            <h4 class="text-xs font-medium uppercase tracking-wider text-[#1C1917] dark:text-[#C5A880] mb-3">
                                 WHAT WE EXPLORE IN YOUR FREE DISCOVERY CALL:
                             </h4>
                             <ul id="symptom-bullets" class="space-y-2.5 text-xs sm:text-sm text-stone-700 dark:text-stone-300">
                                 <li class="flex items-start gap-2.5">
-                                    <span class="text-[#B08B48] font-bold">•</span>
+                                    <span class="text-[#B08B48] dark:text-[#C5A880] font-bold">•</span>
                                     <span>Discuss your daily stress rhythms and meal timing habits</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
-                                    <span class="text-[#B08B48] font-bold">•</span>
+                                    <span class="text-[#B08B48] dark:text-[#C5A880] font-bold">•</span>
                                     <span>Assess whether mineral or blood sugar dynamics are implicated</span>
                                 </li>
                                 <li class="flex items-start gap-2.5">
-                                    <span class="text-[#B08B48] font-bold">•</span>
+                                    <span class="text-[#B08B48] dark:text-[#C5A880] font-bold">•</span>
                                     <span>Determine if functional metabolic testing is indicated</span>
                                 </li>
                             </ul>
@@ -379,7 +385,7 @@
         <section id="framework" class="py-16 bg-[#FAF8F5] dark:bg-stone-900/50 border-y border-[#E8DCC8]/60 dark:border-stone-800">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">THE FUNCTIONAL FRAMEWORK</span>
+                    <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">THE FUNCTIONAL FRAMEWORK</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1C1917] dark:text-stone-100 mb-3">Systems We Evaluate If We Work Together</h2>
                     <p class="text-stone-600 dark:text-stone-300 text-sm sm:text-base">
                         In our initial Discovery Call, we assess if this 3-pillar functional investigation is what your body needs.
@@ -394,7 +400,7 @@
                                 <i class="fa-solid fa-bolt text-base"></i>
                             </div>
                             <h3 class="font-serif text-lg font-normal text-[#1C1917] dark:text-stone-100 mb-1">Metabolic Bioenergetics</h3>
-                            <span class="text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">CELLULAR & NEUROTRANSMITTER PROFILE</span>
+                            <span class="gold-label text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">CELLULAR & NEUROTRANSMITTER PROFILE</span>
                             <p class="text-stone-600 dark:text-stone-300 text-xs sm:text-sm leading-relaxed mb-4">
                                 Evaluating how efficiently your cells produce energy, process nutrients, clear metabolic waste, and balance neuro-chemical signaling pathways.
                             </p>
@@ -409,10 +415,10 @@
                     <div class="bg-white dark:bg-stone-800/80 rounded-2xl p-6 border border-stone-200 dark:border-stone-700 shadow-xs flex flex-col justify-between">
                         <div>
                             <div class="w-10 h-10 rounded-xl bg-[#F3EDE2] dark:bg-stone-700 flex items-center justify-center text-[#B08B48] mb-4">
-                                <i class="fa-solid fa-wheat-awn-circle-exclamation text-base"></i>
+                                <i class="fa-solid fa-flask text-base"></i>
                             </div>
                             <h3 class="font-serif text-lg font-normal text-[#1C1917] dark:text-stone-100 mb-1">Gut Microecology</h3>
-                            <span class="text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">MICROBIOME & BARRIER INTEGRITY</span>
+                            <span class="gold-label text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">MICROBIOME & BARRIER INTEGRITY</span>
                             <p class="text-stone-600 dark:text-stone-300 text-xs sm:text-sm leading-relaxed mb-4">
                                 Exploring digestion efficiency, beneficial vs overgrown flora, inflammatory markers, and mucosal barrier health in the intestinal tract.
                             </p>
@@ -430,7 +436,7 @@
                                 <i class="fa-solid fa-sliders text-base"></i>
                             </div>
                             <h3 class="font-serif text-lg font-normal text-[#1C1917] dark:text-stone-100 mb-1">Hormone Clearance</h3>
-                            <span class="text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">ENDOCRINE & ADRENAL SLOPE</span>
+                            <span class="gold-label text-[10px] font-medium tracking-widest uppercase text-[#B08B48] block mb-3">ENDOCRINE & ADRENAL SLOPE</span>
                             <p class="text-stone-600 dark:text-stone-300 text-xs sm:text-sm leading-relaxed mb-4">
                                 Looking beyond surface hormone levels to assess diurnal stress curves (cortisol/melatonin) and daily liver hormone clearance efficiency.
                             </p>
@@ -449,7 +455,7 @@
             <div class="bg-white dark:bg-stone-900 border border-[#E8DCC8] dark:border-stone-800 rounded-2xl p-6 sm:p-10 shadow-md">
                 
                 <!-- Progress Indicator Bar -->
-                <div class="flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#B08B48] mb-4">
+                <div class="gold-label flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-[#B08B48] mb-4">
                     <span id="quiz-step-indicator">STEP 1 OF 3</span>
                     <span id="quiz-progress-text">33% COMPLETE</span>
                 </div>
@@ -458,7 +464,7 @@
                 </div>
 
                 <div class="text-center max-w-2xl mx-auto mb-8">
-                    <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-1">INTERACTIVE READINESS ASSESSMENT</span>
+                    <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-1">INTERACTIVE READINESS ASSESSMENT</span>
                     <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1C1917] dark:text-stone-100">Are We a Good Match for a Discovery Call?</h2>
                 </div>
 
@@ -558,7 +564,7 @@
         <section id="faq" class="py-16 bg-[#FAF8F5] dark:bg-stone-900/40 border-t border-[#E8DCC8]/60 dark:border-stone-800">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-2xl mx-auto mb-12">
-                    <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">CLEAR & UNAMBIGUOUS</span>
+                    <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-2">CLEAR & UNAMBIGUOUS</span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1C1917] dark:text-stone-100 mb-3">Discovery Session FAQ</h2>
                     <p class="text-stone-600 dark:text-stone-300 text-sm">
                         Everything you need to know before booking your free 1-to-1 session.
@@ -605,7 +611,7 @@
         <!-- BOOKING / FINAL CALL TO ACTION -->
         <section id="booking" class="py-16 bg-[#1C1917] text-[#FAF8F5] text-center px-4 relative overflow-hidden">
             <div class="max-w-3xl mx-auto relative z-10">
-                <span class="text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-3">TAKE THE NEXT STEP</span>
+                <span class="gold-label text-xs font-medium uppercase tracking-widest text-[#B08B48] block mb-3">TAKE THE NEXT STEP</span>
                 <h2 class="font-serif text-3xl sm:text-4xl font-normal mb-4">Ready to Explore Your Root Cause?</h2>
                 <p class="text-stone-300 text-sm sm:text-base max-w-xl mx-auto mb-8">
                     Schedule your free 1-to-1 virtual Discovery Call today. No pressure, no obligations—just clarity on whether functional investigation is right for you.
@@ -613,7 +619,7 @@
                 <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-[#B08B48]/40 max-w-md mx-auto text-left">
                     <div class="flex items-center gap-3 mb-4">
                         <div class="w-10 h-10 rounded-full bg-[#B08B48]/20 flex items-center justify-center text-[#B08B48]">
-                            <i class="fa-solid fa-calendar-check"></i>
+                            <i class="fa-solid fa-calendar-check dark:text-[#C5A880]"></i>
                         </div>
                         <div>
                             <div class="font-semibold text-sm">Virtual 1-to-1 Discovery Call</div>
@@ -635,7 +641,7 @@
         <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-xl overflow-y-auto max-h-[90vh]">
             <button type="button" onclick="closeDiscoveryModal()" aria-label="Close" class="absolute top-5 right-5 text-stone-400 hover:text-[#1C1917] dark:hover:text-white text-xl font-bold">&times;</button>
             <div class="mb-5">
-                <span class="text-xs font-bold uppercase tracking-widest text-[#B08B48] block mb-1">FREE 1-TO-1 VIRTUAL CALL</span>
+                <span class="gold-label text-xs font-bold uppercase tracking-widest text-[#B08B48] block mb-1">FREE 1-TO-1 VIRTUAL CALL</span>
                 <h3 class="text-2xl font-serif font-bold text-[#1C1917] dark:text-white">Request Your Discovery Call</h3>
                 <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Tell us a little about you and we will be in touch to arrange a time.</p>
             </div>
@@ -688,14 +694,14 @@
     <footer class="bg-[#1C1917] text-stone-400 text-xs py-10 border-t border-stone-800">
         <div class="max-w-6xl mx-auto px-4 text-center space-y-4">
             <div>
-                <p class="font-serif font-normal text-stone-200 text-base uppercase tracking-widest">RADICAL WELLNESS</p>
-                <p class="text-xs text-[#B08B48] font-medium mt-1">Functional Health Practitioner | FDNP, FBCS | Kel Liew</p>
+                <p class="font-serif font-normal text-white text-base uppercase tracking-widest">RADICAL WELLNESS</p>
+                <p class="text-xs text-[#C5A880] font-medium mt-1">Functional Health Practitioner | FDNP, FBCS | Kel Liew</p>
             </div>
             
-            <div class="flex items-center justify-center gap-4 text-stone-400 text-xs">
-                <a href="https://kelliewfdnp.substack.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#B08B48] transition-colors">Substack Article</a>
+            <div class="flex items-center justify-center gap-4 text-[#E5CE9F] text-xs">
+                <a href="https://kelliewfdnp.substack.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Substack Article</a>
                 <span>•</span>
-                <a href="#" onclick="openDiscoveryModal(event)" class="hover:text-[#B08B48] transition-colors">Discovery Pre-Screening</a>
+                <a href="#" onclick="openDiscoveryModal(event)" class="hover:text-white transition-colors">Discovery Pre-Screening</a>
             </div>
 
             <p class="max-w-3xl mx-auto text-[11px] text-stone-500 leading-relaxed">
@@ -882,10 +888,10 @@
             const themeIcon = document.getElementById('theme-icon');
             if (html.classList.contains('dark')) {
                 html.classList.remove('dark');
-                themeIcon.className = 'fa-solid fa-moon text-sm';
+                themeIcon.className = 'fa-solid fa-moon text-lg';
             } else {
                 html.classList.add('dark');
-                themeIcon.className = 'fa-solid fa-sun text-sm text-[#B08B48]';
+                themeIcon.className = 'fa-solid fa-sun text-lg text-[#F0DDB0]';
             }
         }
 
@@ -903,7 +909,7 @@
             buttons.forEach((btn, idx) => {
                 const isActive = idx === index;
                 if (isActive) {
-                    btn.className = 'symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-[#1C1917] dark:border-[#B08B48] shadow-sm flex items-center justify-between';
+                    btn.className = 'symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-sm flex items-center justify-between';
                 } else {
                     btn.className = 'symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between';
                 }
@@ -917,7 +923,7 @@
             const bulletsContainer = document.getElementById('symptom-bullets');
             bulletsContainer.innerHTML = content.bullets.map(bullet => `
                 <li class="flex items-start gap-2.5">
-                    <span class="text-[#B08B48] font-bold">•</span>
+                    <span class="text-[#B08B48] dark:text-[#C5A880] font-bold">•</span>
                     <span>${bullet}</span>
                 </li>
             `).join('');
