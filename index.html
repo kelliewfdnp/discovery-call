@@ -9,6 +9,7 @@
     <script>
         tailwind.config = {
             darkMode: 'class',
+            future: { hoverOnlyWhenSupported: true },
             theme: {
                 extend: {
                     colors: {
@@ -43,6 +44,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
+button,a{-webkit-tap-highlight-color:transparent}
 .dark [class~="text-[#B08B48]"]:not([class*="dark:text-"]){color:#C5A880}
 .dark #quiz-progress-bar{background-color:#C5A880}
 .fa-flask{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M10%202v7.527a2%202%200%200%201-.211.896L4.72%2020.55a1%201%200%200%200%20.9%201.45h12.76a1%201%200%200%200%20.9-1.45l-5.069-10.127A2%202%200%200%201%2014%209.527V2%22/%3E%3Cpath%20d%3D%22M8.5%202h7M7%2016h10%22/%3E%3C/svg%3E")}
@@ -63,11 +65,11 @@
 .fa-heart-pulse{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M19%2014c1.49-1.46%203-3.21%203-5.5A5.5%205.5%200%200%200%2016.5%203c-1.76%200-3%20.5-4.5%202-1.5-1.5-2.74-2-4.5-2A5.5%205.5%200%200%200%202%208.5c0%202.3%201.5%204.05%203%205.5l7%207z%22/%3E%3Cpath%20d%3D%22M3.22%2012H9.5l.5-1%202%204.5%202-7%201.5%203.5h5.27%22/%3E%3C/svg%3E")}
 .fa-microscope{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M6%2018h8M3%2022h18M14%2022a7%207%200%201%200%200-14h-1M9%2014h2M9%2012a2%202%200%200%201-2-2V6h6v4a2%202%200%200%201-2%202zM12%206V3a1%201%200%200%200-1-1H9a1%201%200%200%200-1%201v3%22/%3E%3C/svg%3E")}
 .fa-minus{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012h14%22/%3E%3C/svg%3E")}
-.fa-moon{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203a6%206%200%200%200%209%209%209%209%200%201%201-9-9z%22/%3E%3C/svg%3E")}
+.fa-moon{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M20.354%2015.354A9%209%200%200%201%208.646%203.646%209.003%209.003%200%200%200%2012%2021a9.003%209.003%200%200%200%208.354-5.646z%27/%3E%3C/svg%3E")}
 .fa-plus{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M5%2012h14M12%205v14%22/%3E%3C/svg%3E")}
 .fa-sliders{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M21%204h-7M10%204H3M21%2012h-9M8%2012H3M21%2020h-5M12%2020H3M14%202v4M8%2010v4M16%2018v4%22/%3E%3C/svg%3E")}
 .fa-star{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%202l3.09%206.26L22%209.27l-5%204.87%201.18%206.88L12%2017.77l-6.18%203.25L7%2014.14%202%209.27l6.91-1.01z%22/%3E%3C/svg%3E")}
-.fa-sun{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%224.6%22%20fill%3D%22black%22/%3E%3Cpath%20d%3D%22M12%204.4V1.8M12%2019.6v2.6M4.4%2012H1.8M19.6%2012h2.6M6.63%206.63L4.79%204.79M17.37%2017.37l1.84%201.84M6.63%2017.37l-1.84%201.84M17.37%206.63l1.84-1.84%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22/%3E%3C/svg%3E")}
+.fa-sun{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%274.14%27%20fill%3D%27black%27/%3E%3Cpath%20d%3D%27M12%204.4V1.8M12%2019.6v2.6M4.4%2012H1.8M19.6%2012h2.6M6.63%206.63L4.79%204.79M17.37%2017.37l1.84%201.84M6.63%2017.37l-1.84%201.84M17.37%206.63l1.84-1.84%27%20stroke%3D%27black%27%20stroke-width%3D%271.75%27%20stroke-linecap%3D%27round%27%20fill%3D%27none%27/%3E%3C/svg%3E")}
 .fa-user-shield{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M12%203l7%203v5c0%205-3%208-7%2010-4-2-7-5-7-10V6z%22/%3E%3Cpath%20d%3D%22M9%2012l2%202%204-4%22/%3E%3C/svg%3E")}
 .fa-video{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M22%208l-6%204%206%204V8z%22/%3E%3Crect%20x%3D%222%22%20y%3D%226%22%20width%3D%2214%22%20height%3D%2212%22%20rx%3D%222%22/%3E%3C/svg%3E")}
 .fa-wheat-awn-circle-exclamation{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Ccircle%20cx%3D%2212%22%20cy%3D%2212%22%20r%3D%2210%22/%3E%3Cpath%20d%3D%22M12%208v4M12%2016h.01%22/%3E%3C/svg%3E")}
@@ -95,8 +97,8 @@
             
             <!-- Brand Logo & Subtitle -->
             <a href="#overview" onclick="smoothScroll(event, 'overview')" class="flex items-center gap-3 group shrink-0 lg:justify-self-start">
-                <div class="w-9 h-9 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-stone-700 flex items-center justify-center text-[#B08B48] group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-lightbulb text-lg dark:text-[#C5A880]"></i>
+                <div class="w-9 h-9 rounded-full bg-[#7A1C2E] dark:bg-stone-800 border border-[#7A1C2E] dark:border-[#B08B48]/70 flex items-center justify-center text-[#B08B48] group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-lightbulb text-lg text-white dark:text-[#C5A880]"></i>
                 </div>
                 <div>
                     <!-- Reduced font size by 2 sizes: text-sm sm:text-base -->
