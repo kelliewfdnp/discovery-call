@@ -44,6 +44,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
+.fa-arrow-left-right{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M8%203L4%207l4%204M4%207h16M16%2021l4-4-4-4M20%2017H4%27/%3E%3C/svg%3E")}
+@media (min-width:1024px){html:not(.dark) .symptom-item-btn.is-active{position:relative}
+html:not(.dark) .symptom-item-btn.is-active::after{content:"";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid #C5A880}}
 button,a{-webkit-tap-highlight-color:transparent}
 .dark [class~="text-[#B08B48]"]:not([class*="dark:text-"]){color:#C5A880}
 .dark #quiz-progress-bar{background-color:#C5A880}
@@ -119,11 +122,24 @@ button,a{-webkit-tap-highlight-color:transparent}
 
             <!-- Actions Right -->
             <div class="flex items-center gap-2 sm:gap-3 lg:justify-self-end">
-                <!-- Mode Toggle Button Pill -->
-                <button type="button" id="mode-toggle-btn" onclick="togglePerspectiveMode(event)" class="px-3.5 py-1.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-[#B08B48]/70 text-[#B08B48] dark:text-[#F0DDB0] text-xs font-semibold uppercase tracking-wider hover:bg-[#E8DCC8]/60 dark:hover:bg-stone-700 transition-all hidden sm:flex whitespace-nowrap items-center gap-1.5">
-                    <i class="fa-solid fa-sliders text-[#B08B48] dark:text-[#F0DDB0] text-xs"></i>
-                    <span id="mode-toggle-label" class="mode-label">SIMPLE</span>
-                </button>
+                <!-- Perspective Switch (Simple / Clinical) -->
+                <div class="relative hidden sm:block">
+                    <button type="button" id="mode-menu-btn" onclick="toggleModeMenu(event)" aria-haspopup="true" aria-expanded="false" aria-label="Switch perspective: Simple or Clinical" title="Switch perspective" class="w-9 h-9 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-[#B08B48]/70 text-[#B08B48] dark:text-[#F0DDB0] flex items-center justify-center hover:bg-[#E8DCC8]/60 dark:hover:bg-stone-700 transition-all shrink-0">
+                        <i class="fa-solid fa-arrow-left-right text-lg"></i>
+                    </button>
+                    <div id="mode-menu" class="hidden absolute right-0 top-full mt-3 w-52 rounded-2xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 shadow-xl p-1.5 z-[70]">
+                        <button type="button" data-mode="simple" onclick="setPerspectiveMode('simple')" class="mode-opt w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#1C1917] dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+                            <i class="fa-solid fa-book-open text-base text-stone-500 dark:text-[#C5A880]"></i>
+                            <span class="flex-1 text-left">Simple</span>
+                            <i class="fa-solid fa-check mode-check text-sm text-[#B08B48]" style="visibility:visible"></i>
+                        </button>
+                        <button type="button" data-mode="clinical" onclick="setPerspectiveMode('clinical')" class="mode-opt w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[#1C1917] dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors">
+                            <i class="fa-solid fa-microscope text-base text-stone-500 dark:text-[#C5A880]"></i>
+                            <span class="flex-1 text-left">Clinical</span>
+                            <i class="fa-solid fa-check mode-check text-sm text-[#B08B48]" style="visibility:hidden"></i>
+                        </button>
+                    </div>
+                </div>
 
                 <!-- Dark/Light Circle Button -->
                 <button type="button" onclick="toggleTheme(event)" class="w-9 h-9 rounded-full bg-white dark:bg-stone-800 border border-stone-200 dark:border-[#B08B48]/70 text-stone-700 dark:text-[#F0DDB0] flex items-center justify-center hover:bg-stone-50 dark:hover:bg-stone-700 transition-all shrink-0 shadow-xs" title="Toggle Light/Dark Theme">
@@ -308,27 +324,27 @@ button,a{-webkit-tap-highlight-color:transparent}
             <div class="grid lg:grid-cols-12 gap-6 items-start">
                 <!-- Left Vertical Selection List -->
                 <div class="lg:col-span-5 space-y-3" id="symptom-list">
-                    <button type="button" onclick="selectSymptom(event, 0)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-sm flex items-center justify-between" data-index="0">
+                    <button type="button" onclick="selectSymptom(event, 0)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 is-active bg-[#EDE5D4] text-[#1C1917] border-[#C5A880] font-semibold dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-md flex items-center justify-between" data-index="0">
                         <span class="font-medium text-sm">3 PM Energy Slump & Afternoon Crash</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="selectSymptom(event, 1)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="1">
+                    <button type="button" onclick="selectSymptom(event, 1)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="1">
                         <span class="font-medium text-sm">Post-Meal Bloating & Distension</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="selectSymptom(event, 2)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="2">
+                    <button type="button" onclick="selectSymptom(event, 2)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="2">
                         <span class="font-medium text-sm">Brain Fog & Concentration Slumps</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="selectSymptom(event, 3)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="3">
+                    <button type="button" onclick="selectSymptom(event, 3)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="3">
                         <span class="font-medium text-sm">Waking Up at 3 AM with Racing Thoughts</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="selectSymptom(event, 4)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="4">
+                    <button type="button" onclick="selectSymptom(event, 4)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="4">
                         <span class="font-medium text-sm">Stubborn Weight & Metabolic Resistance</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
-                    <button type="button" onclick="selectSymptom(event, 5)" class="symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="5">
+                    <button type="button" onclick="selectSymptom(event, 5)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between" data-index="5">
                         <span class="font-medium text-sm">Skin Flares & Adult Breakouts</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
                     </button>
@@ -879,6 +895,7 @@ button,a{-webkit-tap-highlight-color:transparent}
             }
 
             selectSymptom(null, currentSymptomIndex);
+            updateModeMenu();
         }
 
         // Theme Toggle (Light / Dark)
@@ -911,9 +928,9 @@ button,a{-webkit-tap-highlight-color:transparent}
             buttons.forEach((btn, idx) => {
                 const isActive = idx === index;
                 if (isActive) {
-                    btn.className = 'symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-[#1C1917] text-[#FAF8F5] border-[#1C1917] dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-sm flex items-center justify-between';
+                    btn.className = 'symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 is-active bg-[#EDE5D4] text-[#1C1917] border-[#C5A880] font-semibold dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-md flex items-center justify-between';
                 } else {
-                    btn.className = 'symptom-item-btn w-full p-4 rounded-xl border text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between';
+                    btn.className = 'symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 bg-white dark:bg-stone-800 border-stone-200 dark:border-stone-700 text-[#1C1917] dark:text-stone-200 hover:border-[#B08B48] flex items-center justify-between';
                 }
             });
 
@@ -1123,6 +1140,34 @@ button,a{-webkit-tap-highlight-color:transparent}
         }
         window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeMobileMenu(); });
         document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeMobileMenu(); });
+    
+        // ---- Simple / Clinical dropdown ----
+        function updateModeMenu() {
+            document.querySelectorAll('.mode-opt').forEach(b => {
+                const on = b.dataset.mode === currentPerspectiveMode;
+                b.querySelector('.mode-check').style.visibility = on ? 'visible' : 'hidden';
+                b.classList.toggle('font-semibold', on);
+            });
+        }
+        function toggleModeMenu(e) {
+            if (e) { e.preventDefault(); e.stopPropagation(); }
+            const m = document.getElementById('mode-menu');
+            const open = m.classList.contains('hidden');
+            m.classList.toggle('hidden', !open);
+            document.getElementById('mode-menu-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        function closeModeMenu() {
+            document.getElementById('mode-menu').classList.add('hidden');
+            document.getElementById('mode-menu-btn').setAttribute('aria-expanded', 'false');
+        }
+        function setPerspectiveMode(mode) {
+            if (mode !== currentPerspectiveMode) togglePerspectiveMode();
+            updateModeMenu();
+            closeModeMenu();
+        }
+        document.addEventListener('click', ev => { if (!ev.target.closest('#mode-menu') && !ev.target.closest('#mode-menu-btn')) closeModeMenu(); });
+        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeModeMenu(); });
+        updateModeMenu();
     </script>
 </body>
 </html>
