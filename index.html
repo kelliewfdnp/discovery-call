@@ -44,6 +44,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <style>
+.symptom-desc{min-height:3lh}
 .fa-arrow-left-right{--ic:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27black%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M8%203L4%207l4%204M4%207h16M16%2021l4-4-4-4M20%2017H4%27/%3E%3C/svg%3E")}
 @media (min-width:1024px){html:not(.dark) .symptom-item-btn.is-active{position:relative}
 html:not(.dark) .symptom-item-btn.is-active::after{content:"";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:9px solid #C5A880}}
@@ -168,7 +169,7 @@ button,a{-webkit-tap-highlight-color:transparent}
                 <a href="#faq" onclick="closeMobileMenu(); smoothScroll(event, 'faq')" class="py-3.5 hover:text-[#B08B48]">FAQ</a>
                 <div class="pt-3 pb-1 flex flex-col gap-2.5">
                     <button type="button" onclick="togglePerspectiveMode(event)" class="sm:hidden w-full py-2.5 rounded-full bg-[#F3EDE2] dark:bg-stone-800 border border-[#E8DCC8] dark:border-[#B08B48]/70 text-[#B08B48] dark:text-[#F0DDB0] text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-sliders text-[#B08B48] dark:text-[#F0DDB0] text-xs"></i>
+                        <i class="fa-solid fa-arrow-left-right text-[#B08B48] dark:text-[#F0DDB0] text-sm"></i>
                         <span class="mode-label">SIMPLE</span>
                     </button>
                     <a href="#" onclick="closeMobileMenu(); openDiscoveryModal(event)" class="w-full py-3 rounded-full bg-[#B08B48] text-white text-center font-semibold text-xs tracking-wider uppercase hover:bg-[#967233] transition-all shadow-sm">BOOK CALL</a>
@@ -323,7 +324,7 @@ button,a{-webkit-tap-highlight-color:transparent}
 
             <div class="grid lg:grid-cols-12 gap-6 items-start">
                 <!-- Left Vertical Selection List -->
-                <div class="lg:col-span-5 space-y-3" id="symptom-list">
+                <div class="lg:col-span-5 lg:self-center space-y-3" id="symptom-list">
                     <button type="button" onclick="selectSymptom(event, 0)" class="symptom-item-btn w-full px-6 py-4 rounded-full border-2 text-left transition-colors duration-150 is-active bg-[#EDE5D4] text-[#1C1917] border-[#C5A880] font-semibold dark:bg-[#B08B48] dark:text-white dark:border-[#B08B48] shadow-md flex items-center justify-between" data-index="0">
                         <span class="font-medium text-sm">3 PM Energy Slump & Afternoon Crash</span>
                         <i class="fa-solid fa-chevron-right text-xs"></i>
@@ -364,7 +365,7 @@ button,a{-webkit-tap-highlight-color:transparent}
                             3 PM Energy Slump & Afternoon Crash
                         </h3>
 
-                        <p id="symptom-description" class="text-stone-600 dark:text-stone-300 text-sm leading-relaxed mb-6">
+                        <p id="symptom-description" class="symptom-desc text-stone-600 dark:text-stone-300 text-sm leading-relaxed mb-6">
                             Your body's cellular spark plugs may be running low on mineral voltage. When ongoing stress or glucose drops drain cellular reserves, your energy engine drops into limp mode right after lunch.
                         </p>
 
@@ -851,7 +852,7 @@ button,a{-webkit-tap-highlight-color:transparent}
             {
                 title: "Skin Flares & Adult Breakouts",
                 simple: {
-                    desc: "Your skin often acts as a secondary elimination channel. When internal detox pathways (gut or liver) are congested, surface expression can increase.",
+                    desc: "Your skin often acts as a secondary elimination channel. When internal detox pathways (gut or liver) are congested, the overflow can surface as flare-ups, breakouts and stubborn irritation.",
                     bullets: [
                         "Assess liver and gut health history behind skin concerns",
                         "Identify potential dietary sensitivities or hormonal links",
